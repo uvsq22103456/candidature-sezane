@@ -1,0 +1,235 @@
+<!html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Samia | Portfolio Data & Retail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.39.0/build/stlite.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.39.0/build/stlite.js"></script>
+    <script>
+      stlite.mount(
+        {
+          requirements: ["streamlit"],
+          entrypoint: "app.py",
+          files: {
+            "app.py": `
+import streamlit as st
+
+# ── Configuration ─────────────────────────────────────────────────────────────
+st.set_page_config(
+    page_title="Samia | Data & Retail Portfolio",
+    page_icon="✨",
+    layout="centered"
+)
+
+# ── CSS global : Style Épuré / Magazine de Mode ──────────────────────────────
+st.markdown("""
+<style>
+    #MainMenu, footer, header { visibility: hidden; }
+    
+    body {
+        color: #2C2C2C;
+        background-color: #FAFAFA;
+    }
+    
+    .my-card {
+        background-color: #FFFFFF;
+        border: 1px solid #E5E0DA;
+        border-radius: 4px;
+        padding: 1.2rem;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .my-card h4 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+        letter-spacing: 0.5px;
+        color: #1A1A1A;
+    }
+    .my-chip {
+        display: inline-block;
+        background: #F4EFEB;
+        color: #4A3E3D;
+        border-radius: 12px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        margin: 2px 2px 4px 0;
+        border: 1px solid #E2D9D1;
+    }
+    .my-text {
+        font-size: 0.88rem;
+        color: #666666;
+        margin: 0;
+        line-height: 1.4;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# ── En-tête ──────────────────────────────────────────────────────────────────
+st.title("Samia Said Hassani ✨")
+st.subheader("Data Scientist & Data Analyst — Retail & E-commerce")
+st.write("Bienvenue dans mon portfolio interactif. Diplômée d'un M2 à Paris-Saclay, j'analyse et modélise les données métiers au service de la performance Retail.")
+
+# ── Contact ──────────────────────────────────────────────────────────────────
+col_btn1, col_btn2, col_btn3 = st.columns(3)
+with col_btn1:
+    st.link_button("✉️ Me contacter", "mailto:samia.saidhassani@gmail.com", use_container_width=True)
+with col_btn2:
+    st.link_button("🔗 Profil LinkedIn", "https://linkedin.com/in/samia-said-hassani-71057420b", use_container_width=True)
+with col_btn3:
+    st.link_button("📞 06 64 20 63 21", "tel:0664206321", use_container_width=True)
+
+st.divider()
+
+# ── Onglets ──────────────────────────────────────────────────────────────────
+tab_resume, tab_skills, tab_exp, tab_learn = st.tabs([
+    "📖 Édito & Chiffres", 
+    "🛠️ Savoir-Faire", 
+    "💼 Parcours & Impact", 
+    "🌱 Projets & Perspectives"
+])
+
+# ── ONGLET 1 ─────────────────────────────────────────────────────────────────
+with tab_resume:
+    st.markdown("### 🎯 Le Mot de Présentation")
+    st.write("""
+    Ce qui m'anime dans la Data, c'est sa capacité à éclairer la décision business. Grâce à mon passage aux Galeries Lafayette et chez Orange, j'ai développé une double sensibilité : comprendre la donnée client/produit et concevoir des outils automatisés sur-mesure pour les équipes métiers.
+    """)
+    
+    st.markdown("### 📊 En quelques chiffres")
+    
+    col1, col2 = st.columns(2)
+    col1.metric(label="Parcours", value="Bac+5", delta="Paris-Saclay")
+    col2.metric(label="Expérience Pro", value="1,5 an", delta="Galeries Lafayette & Orange")
+    
+    st.write("") 
+    
+    col3, col4 = st.columns(2)
+    col3.metric(label="Projets Déployés", value="5 Outils", delta="En production")
+    col4.metric(label="Impact Direct", value="140k € / mois", delta="Économisés via automatisation")
+
+# ── ONGLET 2 ─────────────────────────────────────────────────────────────────
+with tab_skills:
+    st.markdown("### 🧩 Mes Compétences Clés")
+    
+    col_a, col_b = st.columns(2)
+    with col_a:
+        st.markdown("""
+        <div class="my-card">
+            <div>
+                <h4>🐍 Langages & Traitement</h4>
+                <span class='my-chip'>Python</span> 
+                <span class='my-chip'>SQL</span> 
+                <span class='my-chip'>Pandas</span>
+                <span class='my-chip'>NumPy</span>
+            </div>
+            <p class="my-text">Requêtage complexe, pipelines de nettoyage de données et analyse comportementale.</p>
+        </div>
+        """, unsafe_allow_html=True)
+            
+    with col_b:
+        st.markdown("""
+        <div class="my-card">
+            <div>
+                <h4>🧠 Machine Learning</h4>
+                <span class='my-chip'>Scikit-Learn</span> 
+                <span class='my-chip'>Modèles Prédictifs</span> 
+                <span class='my-chip'>Random Forest</span>
+                <span class='my-chip'>Classification</span>
+            </div>
+            <p class="my-text">Prédiction des ventes, anticipation des invendus et segmentation d'audience.</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.write("")
+    
+    col_c, col_d = st.columns(2)
+    with col_c:
+        st.markdown("""
+        <div class="my-card">
+            <div>
+                <h4>📊 Dataviz & Outils</h4>
+                <span class='my-chip'>Streamlit</span> 
+                <span class='my-chip'>Power BI</span> 
+                <span class='my-chip'>Dashboards</span>
+            </div>
+            <p class="my-text">Création d'interfaces interactives pour le suivi de la performance et des stocks.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col_d:
+        st.markdown("""
+        <div class="my-card">
+            <div>
+                <h4>☁️ Cloud & Environnements</h4>
+                <span class='my-chip'>GCP</span> 
+                <span class='my-chip'>Git</span> 
+                <span class='my-chip'>PostgreSQL</span>
+            </div>
+            <p class="my-text">Gestion de bases de données relationnelles et versioning de projets.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ── ONGLET 3 ─────────────────────────────────────────────────────────────────
+with tab_exp:
+    with st.container(border=True):
+        st.markdown("### 🛍️ Galeries Lafayette | Alternance (1 an)")
+        st.markdown("**Data Analyst / Data Scientist**")
+        st.write("""
+        * **Modélisation & Invendus :** Conception d'un modèle de classification (Random Forest) pour anticiper les invendus et accompagner les acheteurs.
+        * **Dataviz & Pilotage :** Développement de tableaux de bord Power BI pour suivre la qualité de la donnée et la performance des assortiments.
+        """)
+        
+    with st.container(border=True):
+        st.markdown("### 🟧 Orange France | Stage (4 mois)")
+        st.markdown("**Data Scientist Junior**")
+        st.write("""
+        * **Application métier de A à Z :** Déploiement d'un outil complet (Python, PostgreSQL, Streamlit) pour automatiser un processus manuel.
+        * **Impact économique :** Traitement hebdomadaire de 1 700 lignes et détection d'anomalies générant **140 000 € / mois d'économies**.
+        """)
+
+# ── ONGLET 4 ─────────────────────────────────────────────────────────────────
+with tab_learn:
+    st.info("Ce que j'apporte et ce sur quoi je continue d'évoluer :")
+    
+    st.markdown("### 🚀 Enjeux Data & E-commerce")
+    st.write("""
+    Forte de mon socle technique (Python, SQL, Machine Learning), je continue d'approfondir les thématiques modernes de la Data :
+    """)
+    
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        with st.container(border=True):
+            st.markdown("🛍️ **Analyse LTV & Cohortes**")
+    with c2:
+        with st.container(border=True):
+            st.markdown("🤖 **Usage de l'IA & APIs**")
+    with c3:
+        with st.container(border=True):
+            st.markdown("⚙️ **MLOps & Automation**")
+
+st.divider()
+
+# ── Pied de page ─────────────────────────────────────────────────────────────
+st.markdown("##### 📩 Me contacter")
+f_col1, f_col2 = st.columns(2)
+with f_col1:
+    st.link_button("✉️ Envoyer un e-mail", "mailto:samia.saidhassani@gmail.com", use_container_width=True)
+with f_col2:
+    st.link_button("🔗 Profil LinkedIn", "https://linkedin.com/in/samia-said-hassani-71057420b", use_container_width=True)
+`,
+          },
+        },
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
