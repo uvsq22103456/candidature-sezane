@@ -1,10 +1,10 @@
-<!html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Samia | Portfolio Data & Retail</title>
+    <title>Samia | Hub Candidature Data</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.39.0/build/stlite.css" />
   </head>
   <body>
@@ -19,14 +19,14 @@
             "app.py": `
 import streamlit as st
 
-# ── Configuration ─────────────────────────────────────────────────────────────
+# ── Configuration de la page ─────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Samia | Data & Retail Portfolio",
+    page_title="Samia | Data Scientist & Analyst",
     page_icon="✨",
     layout="centered"
 )
 
-# ── CSS global : Style Épuré / Magazine de Mode ──────────────────────────────
+# ── CSS global : Style Épuré / Magazine & Pro ────────────────────────────────
 st.markdown("""
 <style>
     #MainMenu, footer, header { visibility: hidden; }
@@ -70,13 +70,20 @@ st.markdown("""
         margin: 0;
         line-height: 1.4;
     }
+    .quote-box {
+        background-color: #F8F6F4;
+        border-left: 4px solid #8C7A6B;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0 4px 4px 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # ── En-tête ──────────────────────────────────────────────────────────────────
 st.title("Samia Said Hassani ✨")
 st.subheader("Data Scientist & Data Analyst — Retail & E-commerce")
-st.write("Bienvenue dans mon portfolio interactif. Diplômée d'un M2 à Paris-Saclay, j'analyse et modélise les données métiers au service de la performance Retail.")
+st.write("Bienvenue sur mon hub de candidature. Diplômée du M2 ISADS (Paris-Saclay), j'analyse, modélise et automatise les flux de données au service de la performance métier.")
 
 # ── Contact ──────────────────────────────────────────────────────────────────
 col_btn1, col_btn2, col_btn3 = st.columns(3)
@@ -89,32 +96,32 @@ with col_btn3:
 
 st.divider()
 
-# ── Onglets ──────────────────────────────────────────────────────────────────
-tab_resume, tab_skills, tab_exp, tab_learn = st.tabs([
-    "📖 Édito & Chiffres", 
-    "🛠️ Savoir-Faire", 
+# ── Sommaire / Onglets ───────────────────────────────────────────────────────
+tab_resume, tab_skills, tab_exp, tab_docs = st.tabs([
+    "📖 Présentation & Chiffres", 
+    "🛠️ Compétences", 
     "💼 Parcours & Impact", 
-    "🌱 Projets & Perspectives"
+    "📜 CV & Recommandations"
 ])
 
 # ── ONGLET 1 ─────────────────────────────────────────────────────────────────
 with tab_resume:
     st.markdown("### 🎯 Le Mot de Présentation")
     st.write("""
-    Ce qui m'anime dans la Data, c'est sa capacité à éclairer la décision business. Grâce à mon passage aux Galeries Lafayette et chez Orange, j'ai développé une double sensibilité : comprendre la donnée client/produit et concevoir des outils automatisés sur-mesure pour les équipes métiers.
+    Ce qui m'anime dans la Data, c'est sa capacité à éclairer la décision business. Grâce à mes expériences aux Galeries Lafayette et chez Orange, j'ai développé une double sensibilité : comprendre les enjeux clients/produits et concevoir des outils automatisés sur-mesure pour les équipes métiers.
     """)
     
     st.markdown("### 📊 En quelques chiffres")
     
     col1, col2 = st.columns(2)
-    col1.metric(label="Parcours", value="Bac+5", delta="Paris-Saclay")
+    col1.metric(label="Parcours", value="Bac+5", delta="Paris-Saclay (M2 ISADS)")
     col2.metric(label="Expérience Pro", value="1,5 an", delta="Galeries Lafayette & Orange")
     
     st.write("") 
     
     col3, col4 = st.columns(2)
     col3.metric(label="Projets Déployés", value="5 Outils", delta="En production")
-    col4.metric(label="Impact Direct", value="140k € / mois", delta="Économisés via automatisation")
+    col4.metric(label="Impact Financier", value="140k € / mois", delta="Économisés via automatisation")
 
 # ── ONGLET 2 ─────────────────────────────────────────────────────────────────
 with tab_skills:
@@ -125,7 +132,7 @@ with tab_skills:
         st.markdown("""
         <div class="my-card">
             <div>
-                <h4>🐍 Langages & Traitement</h4>
+                <h4>🐍 Traitement & Langages</h4>
                 <span class='my-chip'>Python</span> 
                 <span class='my-chip'>SQL</span> 
                 <span class='my-chip'>Pandas</span>
@@ -156,7 +163,7 @@ with tab_skills:
         st.markdown("""
         <div class="my-card">
             <div>
-                <h4>📊 Dataviz & Outils</h4>
+                <h4>📊 Dataviz & Web Apps</h4>
                 <span class='my-chip'>Streamlit</span> 
                 <span class='my-chip'>Power BI</span> 
                 <span class='my-chip'>Dashboards</span>
@@ -196,25 +203,39 @@ with tab_exp:
         * **Impact économique :** Traitement hebdomadaire de 1 700 lignes et détection d'anomalies générant **140 000 € / mois d'économies**.
         """)
 
-# ── ONGLET 4 ─────────────────────────────────────────────────────────────────
-with tab_learn:
-    st.info("Ce que j'apporte et ce sur quoi je continue d'évoluer :")
+# ── ONGLET 4 : CV & RECOMMANDATIONS ──────────────────────────────────────────
+with tab_docs:
+    st.markdown("### 📄 Mon CV Complet")
+    st.write("Vous pouvez consulter et télécharger mon CV au format PDF ci-dessous :")
     
-    st.markdown("### 🚀 Enjeux Data & E-commerce")
-    st.write("""
-    Forte de mon socle technique (Python, SQL, Machine Learning), je continue d'approfondir les thématiques modernes de la Data :
-    """)
+    # Bouton d'accès au CV (tu peux remplacer le lien par celui de ton Google Drive ou de ton serveur)
+    st.link_button("📥 Télécharger mon CV (PDF)", "https://ton-lien-cv.pdf", use_container_width=True)
     
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        with st.container(border=True):
-            st.markdown("🛍️ **Analyse LTV & Cohortes**")
-    with c2:
-        with st.container(border=True):
-            st.markdown("🤖 **Usage de l'IA & APIs**")
-    with c3:
-        with st.container(border=True):
-            st.markdown("⚙️ **MLOps & Automation**")
+    st.divider()
+    
+    st.markdown("### 💬 Recommandations & Retours d'expérience")
+    
+    st.markdown("""
+    <div class="quote-box">
+        <p style="font-style: italic; margin-bottom: 5px;">
+            "Samia a fait preuve d'une excellente autonomie lors de son stage chez Orange. Elle a su comprendre un besoin métier complexe et livrer en production un outil Streamlit/PostgreSQL qui a généré un impact financier direct d'environ 140k€/mois."
+        </p>
+        <p style="font-weight: bold; font-size: 0.85rem; margin: 0; color: #555;">
+            — Tuteur / Manager chez Orange France
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class="quote-box">
+        <p style="font-style: italic; margin-bottom: 5px;">
+            "Rigueur technique et très bon esprit d'analyse. Son travail sur la modélisation des invendus aux Galeries Lafayette a permis de poser des bases solides pour l'outillage des équipes achats."
+        </p>
+        <p style="font-weight: bold; font-size: 0.85rem; margin: 0; color: #555;">
+            — Manager Data aux Galeries Lafayette
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.divider()
 
